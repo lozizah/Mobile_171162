@@ -1,4 +1,4 @@
-# flutter_anotacoes
+# flutter_postit
 
 A new Flutter project.
 
