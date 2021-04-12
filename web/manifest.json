@@ -1,6 +1,6 @@
 {
-    "name": "flutter_anotacoes",
-    "short_name": "flutter_anotacoes",
+    "name": "flutter_postit",
+    "short_name": "flutter_postit",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
