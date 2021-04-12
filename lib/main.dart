@@ -34,9 +34,11 @@ class _MainScreenState extends State<MainScreen> {
                 children: [
                   Expanded(
                     flex: 1,
-                    child: IconButton(
-                        icon: Icon(Icons.menu),
-                        onPressed: () => Scaffold.of(context).openDrawer()),
+                    child: Builder(
+                      builder: (context) => IconButton(
+                          icon: Icon(Icons.menu),
+                          onPressed: () => Scaffold.of(context).openDrawer()),
+                    ),
                   ),
                   Expanded(
                     flex: 6,
