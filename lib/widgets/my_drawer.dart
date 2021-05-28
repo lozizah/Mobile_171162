@@ -3,7 +3,7 @@ import 'package:flutter_anotacoes/add_nota.dart';
 import 'package:flutter_anotacoes/controller.dart/LoginRegistroController.dart';
 
 class MyDrawer extends StatelessWidget {
-  LoginRegistroController controller = LoginRegistroController();
+  final LoginRegistroController controller = LoginRegistroController();
 
   @override
   Widget build(BuildContext context) {

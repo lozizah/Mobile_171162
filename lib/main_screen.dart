@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_anotacoes/controller.dart/nota_controller.dart';
@@ -17,6 +16,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   void initState() {
+    atualizarTela();
     super.initState();
     final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
     _firebaseMessaging.getToken().then((value) => print(value));
@@ -60,6 +60,7 @@ class _MainScreenState extends State<MainScreen> {
                         icon: Icon(Icons.search),
                         onPressed: () async {
                           await controller.buscarPorTitulo();
+                          setState(() {});
                         }),
                   ),
                 ],
@@ -71,8 +72,14 @@ class _MainScreenState extends State<MainScreen> {
                 crossAxisCount: _count,
                 mainAxisSpacing: 16,
                 crossAxisSpacing: 16,
-                children: List.generate(controller.listaNotas.length,
-                    (index) => NotaWidget(nota: controller.listaNotas[index])),
+                children: List.generate(
+                    controller.listaNotas.length,
+                    (index) => NotaWidget(
+                          nota: controller.listaNotas[index],
+                          atualizaTela: () {
+                            setState(() {});
+                          },
+                        )),
               ),
             )
           ],
@@ -90,10 +97,9 @@ class _MainScreenState extends State<MainScreen> {
                 Icons.model_training_outlined,
                 size: 40,
               ),
-              onPressed: () {
-                setState(() {
-                  //_lightTheme = false;
-                });
+              onPressed: () async {
+                await controller.buscarTodos();
+                setState(() {});
               },
             ),
             IconButton(
@@ -117,5 +123,10 @@ class _MainScreenState extends State<MainScreen> {
         ),
       ),
     );
+  }
+
+  void atualizarTela() async {
+    await controller.buscarTodos();
+    setState(() {});
   }
 }

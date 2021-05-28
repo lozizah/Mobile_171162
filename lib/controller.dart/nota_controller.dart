@@ -16,15 +16,15 @@ class NotaController {
   }
 
   Future<void> buscarPorTitulo() async {
-    if (!procurarController.text.isEmpty)
+    if (procurarController.text.isNotEmpty)
       listaNotas = await _dao.buscarPorTitulo(procurarController.text);
     else
       await buscarTodos();
   }
 
   Future<void> inserir() async {
-    return await _dao
-        .inserir(Nota(null, tituloController.text, textoController.text));
+    await _dao.inserir(Nota(null, tituloController.text, textoController.text));
+    await buscarTodos();
   }
 
   Future<void> remover(int id) async {
