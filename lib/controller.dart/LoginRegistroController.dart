@@ -32,7 +32,7 @@ class LoginRegistroController {
     } catch (e) {
       if (e is FirebaseAuthException) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text("Usuário ou senha incorretos! Tente novamente"),
+          content: Text("Usuário ou senha incorretos. Tente novamente!"),
         ));
       }
       return;
@@ -59,7 +59,7 @@ class LoginRegistroController {
     } catch (e) {
       if (e is FirebaseAuthException) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text("E-mail já utilizado ou inválido! Tente novamente"),
+          content: Text("E-mail já utilizado ou inválido. Tente novamente!"),
         ));
       }
       return;
@@ -68,12 +68,12 @@ class LoginRegistroController {
     if (user != null) {
       Navigator.push(context, MaterialPageRoute(builder: (_) => LoginScreen()));
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text("Registrado com sucesso!"),
+        content: Text("Cadastrado com sucesso!"),
       ));
       return;
     }
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text("Registro falhou! Tente novamente"),
+      content: Text("Cadastro falhou. Tente novamente!"),
     ));
   }
 }
