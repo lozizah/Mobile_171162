@@ -1,7 +1,3 @@
-name: Release-Workflow
-
-# Este 'workflow' é acionado na submissões dos código para o repositório. 
-
 on:
   push:
     branches:
@@ -34,5 +30,5 @@ jobs:
       with:
         appId: ${{ secrets.ID }}
         token: ${{ secrets.TOKEN }}
-        groups: testers
+        groups: grupo-release
         file: build/app/outputs/flutter-apk/app-release.apk
