@@ -27,6 +27,7 @@ class _StartApState extends State<StartApp> {
           return LoginScreen();
         }
         return CircularProgressIndicator();
+        //Teste
       },
     );
   }
